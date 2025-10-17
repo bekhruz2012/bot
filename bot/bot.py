@@ -10,21 +10,29 @@ bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
 dp = Dispatcher()
 
 @dp.message(Command("start"))
-async def start_command(message: types.Message):
+async def 
+start_command(message: types.Message):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🛍 Открыть магазин", web_app=types.WebAppInfo(url="https://collaboration-drab.vercel.app/"))],
+        [InlineKeyboardButton(text="🛍 Открыть магазин",
+         web_app=types.WebAppInfo(url="https://collaboration-drab.vercel.app/"))],
         [InlineKeyboardButton(text="📦 Мои заказы", callback_data="my_orders")],
         [InlineKeyboardButton(text="💬 Техподдержка", callback_data="support")]
     ])
-    await message.answer("Привет! Добро пожаловать в <b>100days</b> 💎", reply_markup=keyboard)
+    await 
+    message.answer("Привет! Добро пожаловать
+     в <b>100days</b> 💎", reply_markup=keyboard)
 
 @dp.callback_query(F.data == "my_orders")
 async def show_orders(callback: types.CallbackQuery):
-    await callback.message.answer("Ваши заказы пока пусты 🛒")
+    await callback.message.answer
+    ("Ваши заказы пока пусты 🛒")
 
 @dp.callback_query(F.data == "support")
 async def support(callback: types.CallbackQuery):
-    await callback.message.answer("Напишите ваш вопрос, и мы скоро ответим 💬")
+    
+    await 
+    callback.message.answer("Напишите ваш вопрос,
+     и мы скоро ответим 💬")
 
 async def main():
     await dp.start_polling(bot)
